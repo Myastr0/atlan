@@ -1,0 +1,16 @@
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    ports:
+      - 32400:32400
+      - 32469:32469
+      - 32400:32400/udp
+      - 32469:32469/udp
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=latest
+    restart: always
+    volumes:
+      - /Users/leodumon/Desktop:/media/

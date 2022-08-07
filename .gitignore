@@ -1,0 +1,7 @@
+**/.clever.json
+**/.idea
+**/.nyc_output
+**/.vscode
+**/node_modules
+**/dist
+**/coverage
