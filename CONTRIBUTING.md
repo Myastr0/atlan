@@ -13,3 +13,5 @@ You will need the following tools installed to be able to contribute to Atlan:
 - [X] [Git](https://git-scm.com/)
 
 ## Setting up
+
+_TODO_
