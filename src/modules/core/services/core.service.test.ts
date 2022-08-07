@@ -29,7 +29,6 @@ describe('CoreService', () => {
           'state.json': '{}',
         },
       };
-      console.log({ mockConfig });
       mock(mockConfig);
     });
 

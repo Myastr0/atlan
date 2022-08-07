@@ -25,7 +25,6 @@ import stateService from './state.service';
 const environmentService = new EnvironmentService();
 
 const init = (): boolean => {
-  console.log({ config });
   if (fs.existsSync(config.core.dirPath)) {
     throw E_ATLAN_CORE_ALREADY_INITIALIZED;
   }

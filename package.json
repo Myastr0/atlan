@@ -19,7 +19,9 @@
     "local": "sudo npm i -g && atlan",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
     "run:dev": "ts-node ./src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --coverage --reporters=\"github-actions\""
   },
   "author": "Myastr0",
   "repository": {
@@ -81,5 +83,13 @@
   "_moduleAliases": {
     "@config": "./dist/src/config/index.js",
     "@state": "./dist/src/state/index.js"
-  }
+  },
+  "keywords": [
+    "atlan",
+    "cli",
+    "docker",
+    "docker compose",
+    "devops",
+    "devops tools"
+  ]
 }

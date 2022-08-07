@@ -8,8 +8,10 @@
 Atlan is a CLI that helps you to manage local dockerized infrastructure without any needed knowledge on Docker and Docker Compose.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
-
+![npm](https://img.shields.io/npm/v/atlan)
+![npm](https://img.shields.io/npm/dy/atlan)
+![GitHub issues](https://img.shields.io/github/issues-raw/Myastr0/atlan)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Myastr0/atlan/test)
 
 ## What is Atlan CLI?
 
