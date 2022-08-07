@@ -19,7 +19,11 @@
     "test": "jest"
   },
   "author": "Myastr0",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Myastr0/atlan.git"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",

@@ -11,17 +11,17 @@ Atlan is a CLI that helps you to manage local dockerized infrastructure without 
 
 
 
-# What is Atlan CLI?
+## What is Atlan CLI?
 
 Atlan is a CLI tool based on [Docker](https://docs.docker.com/get-started/overview) and [Docker Compose](https://docs.docker.com/compose) that helps you to manage complex local dockerized infrastructure.
 
 
-# Use Atlan CLI
+## Use Atlan CLI
 
 
 Please read the full [documentation](./docs/README.md).
 
-# Integrate Atlan CLI in your CLI
+## Integrate Atlan CLI in your CLI
 
 
 Atlan is based on [commander.js](https://github.com/tj/commander.js) cli builder. 
@@ -31,7 +31,7 @@ If you have a custom commander CLI, you can integrate Atlan in your CLI by requi
 const atlan = require('atlan');
 
 ```
-# Philosophy and goals
+## Philosophy and goals
 
 
 Atlan is a tool that was designed to simplify the life of developers. You don't need to know Docker to use it, Atlan does it for you in a very simple way. Its goal is and will remain to simplify the daily life of its users.
@@ -50,16 +50,16 @@ Atlan will inevitably evolve over time. Even if it does evolve, the API must min
 
 Atlan is and will remain an open source tool. Contributing to its evolution should therefore always be easy and accessible to anyone who wants to help improve it.
 
-# License
+## License
 
 
 This tool is licensed under the [MIT license](LICENSE).
 
-# Want to contribute?
+## Want to contribute?
 
 If you want to contribute through code or documentation, the [Contributing guide](CONTRIBUTING.md) is the best place to start. If you have questions, feel free to ask.
 
-# Want to support the project ?
+## Want to support the project ?
 All this project is open source and free to use. If you want to support the project, you can use the link below.
 
 Every little bit helps.
