@@ -1,5 +1,7 @@
-import core from './core';
+import os from 'os';
+
+const homedir = os.homedir();
 
 export default {
-  dirPath: core.dirPath + '/logs',
+  dirPath: homedir + '/.atlan-logs',
 };

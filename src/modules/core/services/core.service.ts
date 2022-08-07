@@ -29,8 +29,12 @@ const init = (): boolean => {
     throw E_ATLAN_CORE_ALREADY_INITIALIZED;
   }
 
+  // Setup logger logs directory one time
+  if (!fs.existsSync(config.logger.dirPath)) {
+    fs.mkdirSync(config.logger.dirPath);
+  }
+
   fs.mkdirSync(config.core.dirPath);
-  fs.mkdirSync(config.logger.dirPath);
 
   contextService.init();
   stateService.init();
