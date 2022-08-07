@@ -11,7 +11,7 @@ Atlan is a CLI that helps you to manage local dockerized infrastructure without 
 ![npm](https://img.shields.io/npm/v/atlan)
 ![npm](https://img.shields.io/npm/dy/atlan)
 ![GitHub issues](https://img.shields.io/github/issues-raw/Myastr0/atlan)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Myastr0/atlan/test)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Myastr0/atlan/Test)
 
 ## What is Atlan CLI?
 
