@@ -1,8 +1,11 @@
 {
   "name": "atlan",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Atlan is a CLI to manage local dockerized apps",
   "main": "dist/src/index.js",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "atlan": "dist/src/cli.js",
     "atl": "dist/src/cli.js"
