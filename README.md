@@ -1,5 +1,5 @@
 <h1 align='center'>
-    <img src='./docs/assets/logo 3.png'/>
+    <img width='300' src='docs/assets/logo.png'/>
 </h1>
 
 # Atlan CLI
