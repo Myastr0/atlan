@@ -1,6 +1,6 @@
 {
   "name": "atlan",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Atlan is a CLI to manage local dockerized apps",
   "main": "dist/src/index.js",
   "files": [
@@ -14,7 +14,7 @@
     "exec": "npx tsc && node dist/src/bin.js",
     "lint": "eslint --ext .ts ./src",
     "lint:fix": "npm run lint -- --fix",
-    "build": "tsc -p .",
+    "build": "tsc -p . && cp -R ./src/context-templates ./dist/src/context-templates",
     "build:watch": "npx tsc -w",
     "local": "sudo npm i -g && atlan",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
