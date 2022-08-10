@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
-    "target": "es6",
+    "target": "ES5",
     "module": "commonjs",
-    "moduleResolution": "node",
-    "allowJs": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "outDir": "./dist",
-    "rootDir": ".",
-    "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
+    "rootDir": "./src",
+    "baseUrl": ".", /* Specify the base directory to resolve non-relative module names. */
     "paths": {
       "@config": ["src/config/index.js"],
       "@state":  ["src/state"],
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "**/*.spec.js",
+    "**/*.test.ts",
+    "**/coverage/*"
+  ],
 }

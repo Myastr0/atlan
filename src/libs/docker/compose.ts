@@ -7,7 +7,7 @@ const projectSuffixName = 'atlan';
 const baseCommand = 'docker compose';
 
 // ----------------------------------------
-interface IDockerComposeRmExtrasCommand {
+export interface IDockerComposeRmExtrasCommand {
   project_name?: string;
 }
 
@@ -33,7 +33,7 @@ const rm = async function (
 };
 
 // ----------------------------------------
-interface IDockerComposeUpExtrasCommand {
+export interface IDockerComposeUpExtrasCommand {
   env_file?: string;
   project_name?: string;
   force_recreate?: boolean;
@@ -71,7 +71,7 @@ const up = async function (
 };
 
 // ----------------------------------------
-interface IDockerComposeDownExtrasCommand {
+export interface IDockerComposeDownExtrasCommand {
   project_name?: string;
 }
 
@@ -95,7 +95,7 @@ const down = async function (
 
 // ----------------------------------------
 
-interface IDockerComposePullExtrasCommand {
+export interface IDockerComposePullExtrasCommand {
   env_file?: string;
   project_name?: string;
 }

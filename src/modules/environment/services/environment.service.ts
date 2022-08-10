@@ -5,6 +5,7 @@ import config from '../../../config';
 import {
   E_ATLAN_ENVIRONMENT_ALREADY_EXISTS,
   E_ATLAN_ENVIRONMENT_MODULE_ALREADY_INITIALIZED,
+  E_ATLAN_ENVIRONMENT_MODULE_NOT_INITIALIZED,
   E_ATLAN_ENVIRONMENT_NOT_EXISTS,
 } from '../../../errors/environment.errors';
 import { IAtlanEnvironment } from '../types/environment.interface';
@@ -183,6 +184,13 @@ export class EnvironmentService {
       throw E_ATLAN_ENVIRONMENT_MODULE_ALREADY_INITIALIZED;
     }
     return fs.mkdirSync(this.dirPath, { recursive: true });
+  }
+
+  destroy() {
+    if (!this.isInitialized()) {
+      throw E_ATLAN_ENVIRONMENT_MODULE_NOT_INITIALIZED;
+    }
+    return fs.rmSync(this.dirPath, { recursive: true });
   }
 
   isInitialized() {

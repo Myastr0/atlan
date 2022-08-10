@@ -1,6 +1,9 @@
 import ora from 'ora';
 
-import { E_ATLAN_STATE_DESTROY_CONFIRMATION_REQUIRED } from '../../../errors/state.errors';
+import {
+  E_ATLAN_STATE_DESTROY_CONFIRMATION_REQUIRED,
+  E_ATLAN_STATE_NOT_INITIALIZED,
+} from '../../../errors/state.errors';
 import stateService from '../services/state.service';
 
 const initState = () => {
@@ -19,6 +22,8 @@ const destroyState = (confirm: boolean) => {
 };
 
 const getState = () => {
+  stateService.isInitializedOrThrow();
+
   const state = stateService.getState();
 
   console.log(JSON.stringify(state, null, 2));

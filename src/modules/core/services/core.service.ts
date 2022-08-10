@@ -20,11 +20,12 @@ import contextService from '../../context/services/context.service';
 import { IAtlanContextApp } from '../../context/types/atlan-context.interface';
 import { EnvironmentService } from '../../environment/services/environment.service';
 import { IAtlanEnvironment } from '../../environment/types/environment.interface';
+import { IAtlanInitDTO } from '../types/atlan-init.dto';
 import stateService from './state.service';
 
 const environmentService = new EnvironmentService();
 
-const init = (): boolean => {
+const init = ({ withContextTemplates }: IAtlanInitDTO): boolean => {
   if (fs.existsSync(config.core.dirPath)) {
     throw E_ATLAN_CORE_ALREADY_INITIALIZED;
   }
@@ -36,11 +37,30 @@ const init = (): boolean => {
 
   fs.mkdirSync(config.core.dirPath);
 
-  contextService.init();
-  stateService.init();
-  environmentService.init();
+  contextService.init({ withTemplates: withContextTemplates });
+
+  try {
+    stateService.init();
+    try {
+      environmentService.init();
+    } catch (err) {
+      stateService.destroy();
+      throw err;
+    }
+  } catch (err) {
+    contextService.destroy();
+    throw err;
+  }
 
   return true;
+};
+
+const destroy = (): void => {
+  if (!fs.existsSync(config.core.dirPath)) {
+    throw E_ATLAN_CORE_NOT_INITIALIZED;
+  }
+
+  fs.rmSync(config.core.dirPath, { recursive: true });
 };
 
 const start = async (
@@ -154,7 +174,7 @@ const stop = async (
   try {
     await docker.compose.down(
       state.apps.map(({ name }) => name),
-      { ...options, env: undefined },
+      { ...options, env: undefined, silent: !options.verbose },
       {
         project_name: 'infra',
       },
@@ -180,14 +200,6 @@ const list = async ({ all }: { all: boolean }): Promise<string> => {
   console.log('🔍 Scanning all containers status :\n');
 
   return docker.container.ls({}, { all });
-};
-
-const destroy = (): void => {
-  if (!fs.existsSync(config.core.dirPath)) {
-    throw E_ATLAN_CORE_NOT_INITIALIZED;
-  }
-
-  fs.rmSync(config.core.dirPath, { recursive: true });
 };
 
 const checkDockerIsInstalled = (): boolean => {

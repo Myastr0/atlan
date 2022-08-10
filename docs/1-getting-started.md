@@ -11,7 +11,7 @@ $ atlan | atl
 Atlan needs to be initialized before you can use it. It will create a `.atlan` directory in your home directory to store ressources that atlan needs to be used.
 
 ```shell    
-$ atlan init
+$ atlan init --with-context-templates
 ```
 
 To verify the initialization, you can run the following command and the see the following result:
