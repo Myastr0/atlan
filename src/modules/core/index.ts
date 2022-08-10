@@ -7,9 +7,18 @@ export default (rootProgram: Command): Command => {
   rootProgram
     .command('init')
     .description('Initialize Atlan')
-    .action(() => {
-      coreController.init();
-    });
+    .option(
+      '--with-context-templates',
+      'Install context templates to bootstrap Atlan CLI',
+      false,
+    )
+    .action(
+      ({
+        withContextTemplates,
+      }: CommandOptions & { withContextTemplates: false }) => {
+        coreController.init({ withContextTemplates });
+      },
+    );
 
   rootProgram
     .command('destroy')

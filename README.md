@@ -1,5 +1,5 @@
 <h1 align='center'>
-    <img width='300' src='docs/assets/logo.png'/>
+    <img width='300' src='docs/assets/logo-with-border.png'/>
 </h1>
 
 
@@ -13,7 +13,7 @@ Atlan is a CLI that helps you to manage local dockerized infrastructure without 
 ![GitHub issues](https://img.shields.io/github/issues-raw/Myastr0/atlan)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Myastr0/atlan/Test)
 
-## What is Atlan CLI?
+## What is Atlan CLI ?
 
 Atlan is a CLI tool based on [Docker](https://docs.docker.com/get-started/overview) and [Docker Compose](https://docs.docker.com/compose) that helps you to manage complex local dockerized infrastructure.
 
@@ -30,9 +30,9 @@ Atlan is based on [commander.js](https://github.com/tj/commander.js) cli builder
 If you have a custom commander CLI, you can integrate Atlan in your CLI by requiring it with theses simple lines of code:
 
 ```js
-const atlan = require('atlan');
-
+const atlan = require('atlan').createAtlanCli();
 ```
+
 ## Philosophy and goals
 
 
@@ -57,7 +57,7 @@ Atlan is and will remain an open source tool. Contributing to its evolution shou
 
 This tool is licensed under the [MIT license](LICENSE).
 
-## Want to contribute?
+## Want to contribute ?
 
 If you want to contribute through code or documentation, the [Contributing guide](CONTRIBUTING.md) is the best place to start. If you have questions, feel free to ask.
 

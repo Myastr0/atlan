@@ -10,9 +10,9 @@ import config from './config';
 import AtlError from './libs/AtlError.class';
 import logger from './libs/logger';
 
-import atlan from './index';
+import { createAtlanCli } from './index';
 
-const atlanCli = atlan();
+const atlanCli = createAtlanCli();
 
 (async (): Promise<void> => {
   clear();
@@ -29,6 +29,7 @@ const atlanCli = atlan();
     await atlanCli.parseAsync(process.argv);
   } catch (err) {
     if (err instanceof AtlError) {
+      console.log(err);
       logger.error(chalk.red(err.message));
       if (err.helpMessage) {
         logger.warn(chalk.yellow(err.helpMessage));

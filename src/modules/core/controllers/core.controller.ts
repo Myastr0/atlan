@@ -3,8 +3,9 @@ import ora from 'ora';
 
 import { E_ATLAN_CORE_DESTROY_CONFIRMATION_REQUIRED } from '../../../errors/core.errors';
 import coreService from '../services/core.service';
+import { IAtlanInitDTO } from '../types/atlan-init.dto';
 
-const init = () => {
+const init = ({ withContextTemplates }: IAtlanInitDTO) => {
   const spinner = ora({ text: 'Initializing Atlan' });
 
   try {
@@ -15,7 +16,7 @@ const init = () => {
     throw err;
   }
 
-  coreService.init();
+  coreService.init({ withContextTemplates });
 
   spinner.succeed('Atlan initialized');
 };

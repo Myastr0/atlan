@@ -24,7 +24,7 @@ const prune = async function (options: ExecOptions): Promise<string> {
 };
 
 // ----------------------------------------
-interface IDockerLsExtrasCommand {
+export interface IDockerLsExtrasCommand {
   all?: boolean;
 }
 

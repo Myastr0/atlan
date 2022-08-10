@@ -8,12 +8,15 @@ import {
   E_ATLAN_CONTEXT_ALREADY_EXISTS,
   E_ATLAN_CONTEXT_DIR_NOT_EXISTS,
   E_ATLAN_CONTEXT_MODULE_ALREADY_INITIALIZED,
+  E_ATLAN_CONTEXT_MODULE_NOT_INITIALIZED,
   E_ATLAN_CONTEXT_NOT_FOUND,
   E_ATLAN_CONTEXT_NOT_VALID,
   E_ATLAN_CURRENT_CONTEXT_NOT_DEFINED,
 } from '../../../errors/context.errors';
+import { E_ATLAN_STATE_NOT_INITIALIZED } from '../../../errors/state.errors';
 import AtlError from '../../../libs/AtlError.class';
 import stateService from '../../core/services/state.service';
+import { IAtlanState } from '../../core/types/atlan-state.interface';
 import {
   AtlanContextTypeEnum,
   IAtlanContextDescriptor,
@@ -144,7 +147,7 @@ const isContextValid = (
 const isCurrentContext = (contextName: string): boolean => {
   const state = stateService.getState();
 
-  return state.currentContext === contextName;
+  return state?.currentContext === contextName;
 };
 
 /**
@@ -154,13 +157,27 @@ const isInitialized = (): boolean => {
   return fs.existsSync(config.context.dirPath);
 };
 
-const init = () => {
+const init = ({ withTemplates }: { withTemplates?: boolean }) => {
   if (isInitialized()) {
     throw E_ATLAN_CONTEXT_MODULE_ALREADY_INITIALIZED;
   }
 
   if (!fs.existsSync(config.context.dirPath)) {
     fs.mkdirSync(config.context.dirPath);
+  }
+
+  if (withTemplates === true) {
+    importTemplateContexts();
+  }
+};
+
+const destroy = () => {
+  if (!isInitialized()) {
+    throw E_ATLAN_CONTEXT_MODULE_NOT_INITIALIZED;
+  }
+
+  if (fs.existsSync(config.context.dirPath)) {
+    fs.rmSync(config.context.dirPath, { recursive: true });
   }
 };
 
@@ -247,6 +264,7 @@ const isContextExists = (contextName: string): boolean => {
 
 export default {
   init,
+  destroy,
   createContext,
   getCurrentContext,
   listContexts,

@@ -5,7 +5,10 @@ import { Command, createCommand } from 'commander';
 import config from './config';
 import modules from './modules';
 
-export default (name = config.name, alias = config.alias) => {
+export const createAtlanCli = (
+  name = config.name,
+  alias = config.alias,
+): Command => {
   const atlan: Command = createCommand(name);
 
   atlan.alias(alias);

@@ -2,23 +2,26 @@
   "name": "atlan",
   "version": "0.0.5",
   "description": "Atlan is a CLI to manage local dockerized apps",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "bin": {
-    "atlan": "dist/src/cli.js",
-    "atl": "dist/src/cli.js"
+    "atlan": "dist/cli.js",
+    "atl": "dist/cli.js"
   },
   "scripts": {
-    "exec": "npx tsc && node dist/src/bin.js",
     "lint": "eslint --ext .ts ./src",
     "lint:fix": "npm run lint -- --fix",
-    "build": "tsc -p . && cp -R ./src/context-templates ./dist/src/context-templates",
-    "build:watch": "npx tsc -w",
+    "build:types": "tsc",
+    "build:compile": "babel --config-file ./babel.config.json src --out-dir dist --extensions '.ts' --copy-files",
+    "build": "concurrently npm:build:*",
+    "watch:types": "npm run build:types -- --watch",
+    "watch:compile": "npm run build:compile -- --watch",
+    "watch": "concurrently npm:watch:*",
     "local": "sudo npm i -g && atlan",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
-    "run:dev": "ts-node ./src/index.ts",
+    "dev": "ts-node ./src/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --coverage --reporters=\"github-actions\""
@@ -30,12 +33,19 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "7.18.10",
+    "@babel/core": "7.18.10",
+    "@babel/plugin-syntax-typescript": "7.18.6",
+    "@babel/plugin-transform-modules-commonjs": "7.18.6",
+    "@babel/preset-env": "7.18.10",
+    "@babel/preset-typescript": "7.18.6",
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "@types/jest": "28.1.3",
     "@types/mock-fs": "4.13.1",
     "@typescript-eslint/eslint-plugin": "5.31.0",
     "@typescript-eslint/parser": "5.31.0",
+    "concurrently": "7.3.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.20.0",
     "eslint-config-prettier": "8.5.0",
@@ -79,10 +89,6 @@
       "pre-commit": "npm run lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "_moduleAliases": {
-    "@config": "./dist/src/config/index.js",
-    "@state": "./dist/src/state/index.js"
   },
   "keywords": [
     "atlan",

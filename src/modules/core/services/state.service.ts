@@ -73,9 +73,9 @@ const isInitializedOrThrow = (): boolean => {
  *
  * @returns {IAtlanState}
  */
-const getState = (): IAtlanState => {
-  if (!fs.existsSync(STATE_FILE_PATH)) {
-    throw E_ATLAN_STATE_NOT_INITIALIZED;
+const getState = (): IAtlanState | null => {
+  if (!isInitialized()) {
+    return null;
   }
 
   return JSON.parse(fs.readFileSync(STATE_FILE_PATH, 'utf8')) as IAtlanState;
