@@ -1,3 +1,7 @@
+---
+title: Context management
+icon: 🧭
+---
 # Context management
 
 As you can see, at the initialization of Atlan, there is some defaults contexts to learn how to use basics atlan commands.

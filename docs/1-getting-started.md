@@ -1,3 +1,7 @@
+---
+title: Getting started
+icon: 🚀
+---
 # Getting started with Atlan CLI
 
 Atlan is composed by multiple cli modules that brings you the power of docker and docker-compose without any knowledge of them.
