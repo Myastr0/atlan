@@ -123,4 +123,4 @@ ___
 In the next chapter, you'll learn how to manage your context.
 ___
 
-Next chapter: [2 - Context Management](2-context-management.md)
+Next chapter: [2 - Context Management](2-context-management/index)
