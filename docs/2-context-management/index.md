@@ -9,5 +9,5 @@ This is simply an getting started guide but you can manage your contexts dependi
 
 This tool contains all crud commands to manage your contexts and associated apps.
 
-___
+---
 

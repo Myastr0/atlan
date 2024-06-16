@@ -4,7 +4,8 @@ title: Installation
 ---
 # Install Atlan CLI
 
-Before proceed to the installation, you need to have some prerequisites.
+> [!NOTE]
+> Before proceed to the installation, you need to have some prerequisites.
 
 ## Prerequisites
 
