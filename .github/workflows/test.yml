@@ -29,5 +29,5 @@ jobs:
         with:
           input: './docs'
           destination: ${{ secrets.NOTION_DOC_PAGE_URL }}
-          token: ${{ secrets.NOTION_TOKEN }}
+          notion-api-key: ${{ secrets.NOTION_TOKEN }}
           clean: true
