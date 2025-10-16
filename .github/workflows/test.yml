@@ -31,3 +31,4 @@ jobs:
           destination: ${{ secrets.NOTION_DOC_PAGE_URL }}
           notion-api-key: ${{ secrets.NOTION_TOKEN }}
           clean: true
+          lock: true
