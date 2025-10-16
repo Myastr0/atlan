@@ -18,14 +18,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Preview markdown synchronization
-        uses: Myastr0/mk-notes/preview@feat-setup-github-action
+        uses: Myastr0/mk-notes/preview@2.0.0
         with:
           input: './docs' # The path to the markdown file or directory to preview
           format: 'plainText' # The format of the preview ("plainText" or "json")
 
 
       - name: Update docs
-        uses: Myastr0/mk-notes/sync@feat-setup-github-action
+        uses: Myastr0/mk-notes/sync@2.0.0
         with:
           input: './docs'
           destination: ${{ secrets.NOTION_DOC_PAGE_URL }}
